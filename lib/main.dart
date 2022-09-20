@@ -51,17 +51,19 @@ class _InputFieldState extends State<InputField> {
                 maxLines: null,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50.0)),
+                    borderRadius: BorderRadius.circular(50.0),
+                  ),
                   hintText: 'Enter a to do',
                 ),
               ),
               ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      displayText = textController.text;
-                    });
-                  },
-                  child: Text("Add To-Do")),
+                onPressed: () {
+                  setState(() {
+                    displayText = textController.text;
+                  });
+                },
+                child: Text("Add To-Do"),
+              ),
             ],
           ),
         ),

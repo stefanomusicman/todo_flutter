@@ -14,12 +14,13 @@ class MyApp extends StatelessWidget {
           title: Text('To-Do List'),
           centerTitle: true,
         ),
-        body: InputField(),
+        body: const InputField(),
       ),
     );
   }
 }
 
+// Input field including Input and Submit button
 class InputField extends StatefulWidget {
   const InputField({super.key});
 
@@ -33,25 +34,38 @@ class _InputFieldState extends State<InputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFormField(
-          textAlign: TextAlign.center,
-          controller: textController,
-          maxLines: null,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Enter a to do',
+    return Container(
+      width: 1000,
+      height: 500,
+      margin: const EdgeInsets.only(top: 25),
+      child: Center(
+        child: Container(
+          width: 300,
+          height: 500,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextFormField(
+                textAlign: TextAlign.center,
+                controller: textController,
+                maxLines: null,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0)),
+                  hintText: 'Enter a to do',
+                ),
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      displayText = textController.text;
+                    });
+                  },
+                  child: Text("Add To-Do")),
+            ],
           ),
         ),
-        ElevatedButton(
-            onPressed: () {
-              setState(() {
-                displayText = textController.text;
-              });
-            },
-            child: Text("Add To-Do")),
-      ],
+      ),
     );
   }
 }

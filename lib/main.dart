@@ -31,6 +31,7 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   TextEditingController textController = TextEditingController();
   String displayText = "";
+  var toDos = [];
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +61,9 @@ class _InputFieldState extends State<InputField> {
                 onPressed: () {
                   setState(() {
                     displayText = textController.text;
+                    toDos.add(displayText);
+                    textController.clear();
+                    // print(toDos);
                   });
                 },
                 child: Text("Add To-Do"),

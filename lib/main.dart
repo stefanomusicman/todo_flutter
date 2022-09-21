@@ -32,7 +32,7 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   TextEditingController textController = TextEditingController();
   String displayText = "";
-  var toDos = [];
+  final List<String> toDos = [];
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +69,10 @@ class _InputFieldState extends State<InputField> {
                 },
                 child: const Text("Add To-Do"),
               ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[for (var todo in toDos) Text(todo)],
+              )
             ],
           ),
         ),

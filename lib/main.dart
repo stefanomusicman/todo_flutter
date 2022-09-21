@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primaryColor: Colors.blue),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('To-Do List'),
+          title: const Text('To-Do List'),
           centerTitle: true,
         ),
         body: const InputField(),
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// Input field including Input and Submit button
+// State for Input field configuration
 class InputField extends StatefulWidget {
   const InputField({super.key});
 
@@ -28,6 +28,7 @@ class InputField extends StatefulWidget {
   State<InputField> createState() => _InputFieldState();
 }
 
+// Here is where you will find the Input Bar, submit button as well as section that will show the list of todos
 class _InputFieldState extends State<InputField> {
   TextEditingController textController = TextEditingController();
   String displayText = "";
@@ -40,7 +41,7 @@ class _InputFieldState extends State<InputField> {
       height: 500,
       margin: const EdgeInsets.only(top: 25),
       child: Center(
-        child: Container(
+        child: SizedBox(
           width: 300,
           height: 500,
           child: Column(
@@ -63,10 +64,10 @@ class _InputFieldState extends State<InputField> {
                     displayText = textController.text;
                     toDos.add(displayText);
                     textController.clear();
-                    // print(toDos);
+                    print(toDos);
                   });
                 },
-                child: Text("Add To-Do"),
+                child: const Text("Add To-Do"),
               ),
             ],
           ),

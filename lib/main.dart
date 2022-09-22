@@ -32,7 +32,7 @@ class InputField extends StatefulWidget {
 class _InputFieldState extends State<InputField> {
   TextEditingController textController = TextEditingController();
   String displayText = "";
-  final List<String> toDos = [];
+  List<String> toDos = [];
 
   @override
   Widget build(BuildContext context) {
@@ -64,14 +64,39 @@ class _InputFieldState extends State<InputField> {
                     displayText = textController.text;
                     toDos.add(displayText);
                     textController.clear();
-                    print(toDos);
                   });
                 },
                 child: const Text("Add To-Do"),
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[for (var todo in toDos) Text(todo)],
+                children: <Widget>[
+                  for (var todo in toDos)
+                    Center(
+                      child: Card(
+                        child: SizedBox(
+                          width: 300,
+                          height: 75,
+                          child: Row(
+                            children: [
+                              Text(todo),
+                              IconButton(
+                                onPressed: () => setState(() {
+                                  toDos.removeWhere(
+                                      (element) => element == todo);
+                                }),
+                                icon: const Icon(
+                                  Icons.delete_outline,
+                                  size: 15.0,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
               )
             ],
           ),

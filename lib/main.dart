@@ -78,8 +78,21 @@ class _InputFieldState extends State<InputField> {
                           width: 300,
                           height: 75,
                           child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text(todo),
+                              SizedBox(
+                                width: 150,
+                                child: Text(
+                                  todo,
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontFamily: 'Raleway',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
                               IconButton(
                                 onPressed: () => setState(() {
                                   toDos.removeWhere(
@@ -87,7 +100,7 @@ class _InputFieldState extends State<InputField> {
                                 }),
                                 icon: const Icon(
                                   Icons.delete_outline,
-                                  size: 15.0,
+                                  size: 20.0,
                                   color: Colors.black,
                                 ),
                               ),

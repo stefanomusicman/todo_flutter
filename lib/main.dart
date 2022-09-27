@@ -39,27 +39,27 @@ class _InputFieldState extends State<InputField> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TextFormField(
-                textAlign: TextAlign.center,
-                controller: textController,
-                maxLines: null,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  hintText: 'Enter a to do',
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    displayText = textController.text;
-                    toDos.add(displayText);
-                    textController.clear();
-                  });
-                },
-                child: const Text("Add To-Do"),
-              ),
+              // TextFormField(
+              //   textAlign: TextAlign.center,
+              //   controller: textController,
+              //   maxLines: null,
+              //   decoration: InputDecoration(
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(50.0),
+              //     ),
+              //     hintText: 'Enter a to do',
+              //   ),
+              // ),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     setState(() {
+              //       displayText = textController.text;
+              //       toDos.add(displayText);
+              //       textController.clear();
+              //     });
+              //   },
+              //   child: const Text("Add To-Do"),
+              // ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[

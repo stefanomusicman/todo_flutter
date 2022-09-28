@@ -8,30 +8,36 @@ class InputField extends StatefulWidget {
 }
 
 class InputFieldState extends State<InputField> {
+  TextEditingController textController = TextEditingController();
+  String displayText = "";
+
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-      TextFormField(
-        textAlign: TextAlign.center,
-        // controller: textController,
-        maxLines: null,
-        decoration: InputDecoration(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50.0),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        TextFormField(
+          textAlign: TextAlign.center,
+          // controller: textController,
+          maxLines: null,
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50.0),
+            ),
+            hintText: 'Enter a to do',
           ),
-          hintText: 'Enter a to do',
         ),
-      ),
-      ElevatedButton(
-        onPressed: () {
-          setState(() {
-            // displayText = textController.text;
-            // toDos.add(displayText);
-            // textController.clear();
-          });
-        },
-        child: const Text("Add To-Do"),
-      ),
-    ]);
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              // displayText = textController.text;
+              // toDos.add(displayText);
+              // textController.clear();
+            });
+          },
+          child: const Text("Add To-Do"),
+        ),
+      ],
+    );
   }
 }

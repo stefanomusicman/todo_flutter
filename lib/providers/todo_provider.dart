@@ -8,7 +8,6 @@ class ToDo with ChangeNotifier {
   void addToDo(String todo) {
     _toDos.add(todo);
     notifyListeners();
-    print(_toDos);
   }
 
   void removeToDo(String todo) {

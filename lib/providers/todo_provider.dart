@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 class ToDo with ChangeNotifier {
-  List<String> toDos = [];
+  final List<String> _toDos = [];
 
-  List get todoList => toDos;
+  List get toDos => _toDos;
 
   void addToDo(String todo) {
-    toDos.add(todo);
+    _toDos.add(todo);
+    notifyListeners();
+    print(_toDos);
   }
 
   void removeToDo(String todo) {
-    toDos.removeWhere((element) => element == todo);
+    _toDos.removeWhere((element) => element == todo);
+    notifyListeners();
   }
 }

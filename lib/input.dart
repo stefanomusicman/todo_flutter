@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import './providers/todo_provider.dart';
 
 class InputField extends StatefulWidget {
   const InputField({super.key});
 
   @override
-  State<InputField> createState() => InputFieldState();
+  State<InputField> createState() => _InputFieldState();
 }
 
-class InputFieldState extends State<InputField> {
+class _InputFieldState extends State<InputField> {
   TextEditingController textController = TextEditingController();
   String displayText = "";
 
@@ -18,7 +20,7 @@ class InputFieldState extends State<InputField> {
       children: [
         TextFormField(
           textAlign: TextAlign.center,
-          // controller: textController,
+          controller: textController,
           maxLines: null,
           decoration: InputDecoration(
             border: OutlineInputBorder(
@@ -30,9 +32,9 @@ class InputFieldState extends State<InputField> {
         ElevatedButton(
           onPressed: () {
             setState(() {
-              // displayText = textController.text;
-              // toDos.add(displayText);
-              // textController.clear();
+              displayText = textController.text;
+              context.read<ToDo>().addToDo(displayText);
+              textController.clear();
             });
           },
           child: const Text("Add To-Do"),

@@ -15,31 +15,37 @@ class _InputFieldState extends State<InputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        TextFormField(
-          textAlign: TextAlign.center,
-          controller: textController,
-          maxLines: null,
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(50.0),
+    return Center(
+      child: Container(
+        margin: const EdgeInsets.all(25),
+        width: 300,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextFormField(
+              textAlign: TextAlign.center,
+              controller: textController,
+              maxLines: null,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50.0),
+                ),
+                hintText: 'Enter a to do',
+              ),
             ),
-            hintText: 'Enter a to do',
-          ),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  displayText = textController.text;
+                  context.read<ToDo>().addToDo(displayText);
+                  textController.clear();
+                });
+              },
+              child: const Text("Add To-Do"),
+            ),
+          ],
         ),
-        ElevatedButton(
-          onPressed: () {
-            setState(() {
-              displayText = textController.text;
-              context.read<ToDo>().addToDo(displayText);
-              textController.clear();
-            });
-          },
-          child: const Text("Add To-Do"),
-        ),
-      ],
+      ),
     );
   }
 }

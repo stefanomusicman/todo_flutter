@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ToDo with ChangeNotifier {
   final List<String> _toDos = [];
 
-  List get toDos => _toDos;
+  List<String> get toDoList => _toDos;
 
   void addToDo(String todo) {
     _toDos.add(todo);

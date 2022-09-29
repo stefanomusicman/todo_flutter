@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './Input.dart';
+import './list.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -13,7 +14,12 @@ class Home extends StatelessWidget {
           title: const Text('To-Do List'),
           centerTitle: true,
         ),
-        body: const InputField(),
+        body: Column(
+          children: const [
+            InputField(),
+            List(),
+          ],
+        ),
       ),
     );
   }

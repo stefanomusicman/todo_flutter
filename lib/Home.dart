@@ -14,11 +14,19 @@ class Home extends StatelessWidget {
           title: const Text('To-Do List'),
           centerTitle: true,
         ),
-        body: Column(
-          children: const [
-            InputField(),
-            List(),
-          ],
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/nyc.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            children: const [
+              InputField(),
+              List(),
+            ],
+          ),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import './providers/todo_provider.dart';
 
@@ -41,7 +42,10 @@ class _InputFieldState extends State<InputField> {
                   textController.clear();
                 });
               },
-              child: const Text("Add To-Do"),
+              child: Text(
+                "Add To-Do",
+                style: GoogleFonts.montserrat(),
+              ),
             ),
           ],
         ),

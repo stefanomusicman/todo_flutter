@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import './Input.dart';
 import './list.dart';
 
@@ -11,7 +12,10 @@ class Home extends StatelessWidget {
       theme: ThemeData(primaryColor: Colors.blue),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('To-Do List'),
+          title: Text(
+            'To-Do List',
+            style: GoogleFonts.montserrat(),
+          ),
           centerTitle: true,
         ),
         body: Container(
